@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Анимированная прокрутка вверх на jQuery</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	// прячем кнопку #back-top
+	$("#back-top").hide();
+	
+	// появление/затухание кнопки #back-top
+	$(function (){
+		$(window).scroll(function (){
+			if ($(this).scrollTop() > 100){
+				$('#back-top').fadeIn();
+			} else{
+				$('#back-top').fadeOut();
+			}
+		});
+
+		// при клике на ссылку плавно поднимаемся вверх
+		$('#back-top a').click(function (){
+			$('body,html').animate({
+				scrollTop:0
+			}, 800);
+			return false;
+		});
+	});
+});
+</script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-12998100-1");
+pageTracker._trackPageview();
+} catch(err){}</script>
+
+<style>
+#wrapper{
+	margin:0 auto;
+	width:900px;
+	position:relative;
+}
+
+/*Back to top button */
+#back-top{
+	position:fixed;
+	bottom:30px;
+	left:50%;
+	margin-left:500px
+}
+
+#back-top a{
+	width:64px;
+	display:block;
+	text-align:center;
+	font:11px/100% Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	text-decoration:none;
+	color:#bbb;
+	/* background color transition */
+	-webkit-transition:1s;
+	-moz-transition:1s;
+	transition:1s;
+}
+
+#back-top a:hover{color:#000;}
+/* arrow icon (span tag) */
+
+#back-top span{
+	width:64px;
+	height:64px;
+	display:block;
+	margin-bottom:7px;
+	background:#ddd url(up-arrow.png) no-repeat center center;
+	/* rounded corners */
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	border-radius:15px;
+	/* background color transition */
+	-webkit-transition:1s;
+	-moz-transition:1s;
+	transition:1s;
+}
+
+#back-top a:hover span{background-color:#777}
+</style>
+</head>
+
+
+<body id="top">
+<div id="wrapper">
+	<h1>Анимированная прокрутка вверх на jQuery</h1>
+	<p>промотайте страницу вниз и кнопка "ВВЕРХ" появится в правом нижнем углу</p>
+	<iframe src="http://proverstka.com.ua" width=100% height=1450px frameborder=no scrolling=no marginwidth=0 marginheight=0></iframe>
+
+	<p id="back-top">
+		<a href="#top"><span></span>Вверх</a>
+	</p>
+</div>
+
+<!-- Yandex.Metrika counter -->
+<div style="display:none;"><script type="text/javascript">
+(function(w, c){
+	(w[c] = w[c] || []).push(function(){
+		try{
+			w.yaCounter10654630 = new Ya.Metrika({id:10654630, enableAll:true, webvisor:true});
+		}
+		catch(e){ }
+	});
+})(window, "yandex_metrika_callbacks");
+</script></div>
+<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer></script>
+<noscript><div><img src="//mc.yandex.ru/watch/10654630" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
